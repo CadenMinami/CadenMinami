@@ -18,6 +18,17 @@ Ingests live LA Metro GTFS-Realtime feeds, scores every bus and train against it
 `Kinesis` · `Lambda` · `DynamoDB` · `SageMaker` · `Step Functions` · `CDK` · `Next.js` · `ArcGIS`
 <br><sub>[Live demo](https://d1trwh3zs290xm.cloudfront.net) · [Equity map](https://d1trwh3zs290xm.cloudfront.net/equity/)</sub>
 
+### ⚔️ [AI Battle Simulator](https://github.com/CadenMinami/acm_ai_battle_hackathon) · Bot-vs-bot arena for my ACM club
+Write a bot in any language, drop it into a Clash-style arena, and watch it fight another bot. A tick-by-tick Python battle engine, an orchestrator that runs each agent as a separate process talking JSON over stdin/stdout, and a web viewer for replays, live matches, and single-elimination tournaments.
+
+`Python` · `Docker` · `JavaScript` · `game simulation` · `process orchestration`
+
+### 🎨 [ARIA](https://github.com/CadenMinami/aria-design) · Voice AI design collaborator · Google DeepMind Hackathon
+Interviews you about your product in a real-time voice conversation, pushes back on vague answers like "clean and modern", and watches which reference sites hold your attention. Then it turns what you *say* and what you *linger on* into a design.
+
+`Gemini Live API` · `TypeScript` · `Vercel`
+<br><sub>[Live demo](https://vibe-check-drab-one.vercel.app/)</sub>
+
 ## 🧰 Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
