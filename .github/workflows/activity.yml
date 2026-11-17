@@ -1,0 +1,50 @@
+# Refreshes the "Recent activity" list in README.md once a day.
+name: Refresh recent activity
+
+on:
+  schedule:
+    # Every day at 13:17 UTC (~5am Pacific). An odd minute avoids the
+    # top-of-the-hour rush when GitHub's scheduled jobs often start late.
+    - cron: "17 13 * * *"
+  # Adds a "Run workflow" button in the Actions tab for manual runs.
+  workflow_dispatch:
+
+# The built-in GITHUB_TOKEN is read-only by default; this job needs to push
+# the updated README back to the repo, so it asks for write access to code.
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Download this repo into the runner (a fresh, throwaway Linux VM).
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # Lightweight deps only. rembg (the 170 MB photo model) is never needed here.
+      - run: pip install pillow numpy pyfiglet pytest
+
+      # If the tests fail, the job stops here and the README is never touched.
+      - run: python -m pytest -q
+
+      - name: Rewrite the activity section
+        run: python -m scripts.update_activity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Only commit when the list actually changed, so quiet days add no noise.
+      - name: Commit if changed
+        run: |
+          if git diff --quiet README.md; then
+            echo "No new activity."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Refresh recent activity"
+          git push

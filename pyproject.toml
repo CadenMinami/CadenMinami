@@ -1,0 +1,16 @@
+[project]
+name = "cadenminami-profile"
+version = "0.1.0"
+description = "Tooling behind my GitHub profile README: the animated ASCII header and the self-updating activity feed."
+requires-python = ">=3.11"
+dependencies = ["pillow", "numpy", "pyfiglet"]
+
+[project.optional-dependencies]
+# rembg (background removal) is only needed to regenerate the header from a photo.
+# It pulls in a ~170 MB neural-net model, so CI never installs it.
+header = ["rembg[cpu]"]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
