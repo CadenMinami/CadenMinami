@@ -45,6 +45,7 @@ Interviews you about your product in a real-time voice conversation, pushes back
 ## ⚡ Recent activity
 
 <!-- ACTIVITY:START -->
+- ⬆️ Pushed to [BruinBet](https://github.com/CadenMinami/BruinBet) · Nov 17
 - 🔃 Opened 3 PRs in [BruinBet](https://github.com/CadenMinami/BruinBet) · Nov 17
 - ⬆️ Pushed to [BruinBet](https://github.com/CadenMinami/BruinBet) · Nov 13
 - ⬆️ Pushed to [youseeLA](https://github.com/troy-h-tian/youseeLA) · Oct 17
